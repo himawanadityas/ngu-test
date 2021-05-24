@@ -9,7 +9,7 @@
     z-index: 7;
 
     .app-footer__inner {
-      margin-left: $app-sidebar-width;
+      //margin-left: $app-sidebar-width;
       box-shadow: 0.3rem -0.46875rem 2.1875rem rgba(darken($primary, 50%), .02),
       0.3rem -0.9375rem 1.40625rem rgba(darken($primary, 50%), .02),
       0.3rem -0.25rem 0.53125rem rgba(darken($primary, 50%), .04),
@@ -25,7 +25,7 @@
   &.closed-sidebar {
     .app-footer {
       .app-footer__inner {
-        margin-left: $app-sidebar-width-collapsed !important;
+        //margin-left: $app-sidebar-width-collapsed !important;
       }
     }
   }
