@@ -23,12 +23,11 @@ const Homepage = () => {
                 <div className="app-main">
                     <div className="app-main__inner">
                         <Row>
-                            {CardBoxData.map((x, index) => (
-                                <CardBox key={index} title={x.title} subtitle={x.subtitle} image={x.image}/>
+                            {CardBoxData.map((card, index) => (
+                                <CardBox key={index} title={card.title} subtitle={card.subtitle} image={card.image}/>
                             ))}
                         </Row>
 
-                        <AppFooter/>
                     </div>
                 </div>
             </CSSTransitionGroup>

@@ -23,8 +23,8 @@ const newPerson = () => {
     };
 };
 
-export function makeData(len = 5553) {
-    return range(len).map(d => {
+export function makeData() {
+    return range(20).map(d => {
         return {
             ...newPerson(),
             children: range(10).map(newPerson)

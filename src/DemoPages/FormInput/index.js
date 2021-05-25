@@ -92,7 +92,6 @@ const FormInput = () => {
                                 </Col>
                             </Row>
                         </Container>
-                        <AppFooter/>
                     </div>
                 </div>
             </CSSTransitionGroup>
