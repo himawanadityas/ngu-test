@@ -25,40 +25,41 @@ import AppFooter from "../../Layout/AppFooter";
 class FormInput extends React.Component {
     constructor() {
         super();
-        this.state = {
-
-        }
+        this.state = {}
     }
 
     handleChange = (e) => {
         this.setState({[e.target.name]: e.target.value})
     }
 
-    componentDidMount() {
-        axios.get("http://localhost:1234/input")
-            .then(res => {this.setState({
-                id:res.data.id,
-                title:res.data.title,
-                location:res.data.location,
-                date:res.data.date,
-                participant:res.data.participant,
-                note:res.data.note,
-                file:res.data.file
-            })})
+    handleFileChange = (e) => {
+        this.setState({[e.target.name]: e.target.files[0]})
     }
 
     onSubmit = (e) => {
-        const dataInput = {
-            id: this.state.id,
-            title: this.state.title,
-            location: this.state.location,
-            date: this.state.date,
-            participant: this.state.participant,
-            note:this.state.note,
-            file: this.state.file
+        const formData = new FormData();
+        const json = JSON.stringify({
+            "title": this.state.title,
+            "location": this.state.location,
+            "date": this.state.date,
+            "participant": this.state.participant,
+            "note": this.state.note
+        });
+        const blobDoc = new Blob([json], {
+            type: 'application/json'
+        });
+
+        formData.append('file', this.state.file)
+        formData.append('data', blobDoc)
+        const config = {
+            headers: {
+                'content-type': 'multipart/mixed'
+            }
         }
-        axios.post("http://localhost:1234/input", dataInput)
+        axios.post("http://localhost:1234/input/save", formData, config)
             .then(res => console.log(res.data))
+
+
     }
 
 
@@ -87,14 +88,16 @@ class FormInput extends React.Component {
                                                             <FormGroup>
                                                                 <Label>Title</Label>
                                                                 <Input type="text" name="title" id="title"
-                                                                       placeholder="Your Title" onChange={this.handleChange}/>
+                                                                       placeholder="Your Title"
+                                                                       onChange={this.handleChange}/>
                                                             </FormGroup>
                                                         </Col>
                                                         <Col>
                                                             <FormGroup>
                                                                 <Label>Location</Label>
                                                                 <Input type="text" name="location" id="location"
-                                                                       placeholder="Location" onChange={this.handleChange}/>
+                                                                       placeholder="Location"
+                                                                       onChange={this.handleChange}/>
                                                             </FormGroup>
                                                         </Col>
                                                     </Row>
@@ -103,26 +106,31 @@ class FormInput extends React.Component {
                                                             <FormGroup>
                                                                 <Label>Participant</Label>
                                                                 <Input type="text" name="participant" id="participant"
-                                                                       placeholder="Participant" onChange={this.handleChange}/>
+                                                                       placeholder="Participant"
+                                                                       onChange={this.handleChange}/>
                                                             </FormGroup>
                                                         </Col>
                                                         <Col>
                                                             <FormGroup>
                                                                 <Label>Date</Label>
-                                                                <Input type="date" name="date" id="date" onChange={this.handleChange}/>
+                                                                <Input type="date" name="date" id="date"
+                                                                       onChange={this.handleChange}/>
                                                             </FormGroup>
                                                         </Col>
                                                     </Row>
 
                                                     <FormGroup>
                                                         <Label>Note</Label>
-                                                        <Input type="textarea" name="note" id="note" onChange={this.handleChange}/>
+                                                        <Input type="textarea" name="note" id="note"
+                                                               onChange={this.handleChange}/>
                                                     </FormGroup>
                                                     <FormGroup>
-                                                        <Label>Address Image</Label>
-                                                        <Input type="text" name="file" id="file" onChange={this.handleChange}/>
+                                                        <Label>Image</Label>
+                                                        <Input type="file" name="file" id="file"
+                                                               onChange={this.handleFileChange}/>
                                                     </FormGroup>
-                                                    <Button type="button" className="mt-1" onClick={this.onSubmit}>Submit</Button>
+                                                    <Button type="button" className="mt-1"
+                                                            onClick={this.onSubmit}>Submit</Button>
                                                 </Form>
                                             </CardBody>
                                         </Card>

@@ -36,7 +36,7 @@ class TableData extends React.Component {
 
 
     render() {
-        const {dataTable} = this.state;
+        // const {dataTable} = this.state;
         return (
             <Fragment>
 
@@ -59,20 +59,20 @@ class TableData extends React.Component {
                                         {/*    <th>Location</th>*/}
                                         {/*    </thead>*/}
                                         {/*    <tbody>*/}
-                                        {/*    {dataTable.map((data) => (*/}
+                                        {/*    {this.state.dataTable.map((data) => (*/}
                                         {/*        <CreateRow key={data.index} title={data.title}*/}
                                         {/*                   location={data.location}/>*/}
                                         {/*    ))}*/}
                                         {/*    </tbody>*/}
                                         {/*</Table>*/}
                                         <ReactTable
-                                            data={dataTable}
+                                            data={this.state.dataTable}
                                             filterable
                                             columns={[{
                                                 columns: [
                                                     {
                                                         Header: 'Title',
-                                                        accessor: 'title'
+                                                        accessor: 'title',
                                                     },
                                                     {
                                                         Header: 'Location',
