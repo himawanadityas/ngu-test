@@ -1,5 +1,6 @@
 import namor from "namor";
 
+
 const range = len => {
     const arr = [];
     for (let i = 0; i < len; i++) {
@@ -23,11 +24,17 @@ const newPerson = () => {
     };
 };
 
+// const fetchData = (data, index) => {
+//     return {
+//         id:
+//     }
+// };
+
 export function makeData() {
-    return range(20).map(d => {
+    return range(6).map(d => {
         return {
             ...newPerson(),
-            children: range(10).map(newPerson)
+            // children: range(10).map(newPerson)
         };
     });
 }

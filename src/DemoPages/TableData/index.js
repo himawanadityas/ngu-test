@@ -3,38 +3,40 @@ import ReactTable from "react-table";
 import {
     Row, Col,
     Card, CardBody,
-    UncontrolledButtonDropdown, DropdownItem, DropdownMenu, DropdownToggle
+    UncontrolledButtonDropdown, DropdownItem, DropdownMenu, DropdownToggle, Table
 } from 'reactstrap';
-import avatar2 from "../../assets/utils/images/avatars/2.jpg";
-import {makeData} from "../Tables/DataTables/Examples/utils"
-import PageTitle from "../../Layout/AppMain/PageTitle";
 import CSSTransitionGroup from "react-transition-group/CSSTransitionGroup";
 import Header from "../../Layout/AppHeader";
 import axios from "axios";
+
+const CreateRow = (props) => {
+    return (
+        <tr>
+            <td>{props.title}</td>
+            <td>{props.location}</td>
+        </tr>
+    )
+}
 
 class TableData extends React.Component {
     constructor() {
         super();
         this.state = {
-            data: [],
+            dataTable: [],
         };
     }
 
-    getData(){
+    componentDidMount() {
         axios.get(`http://localhost:1234/input`)
             .then(res => {
-                this.setState({data:res.data})
-                console.log(res.data)
+                this.setState({dataTable: res.data})
+                console.log(res)
             })
     }
 
-    componentDidMount(){
-        this.getData();
-    }
 
     render() {
-        const {data} = this.state;
-        console.log("ini data", data);
+        const {dataTable} = this.state;
         return (
             <Fragment>
 
@@ -51,30 +53,42 @@ class TableData extends React.Component {
                             <Card className="main-card m-5">
                                 <div className="mb-3">
                                     <CardBody>
+                                        {/*<Table size="lg">*/}
+                                        {/*    <thead>*/}
+                                        {/*    <th>Title</th>*/}
+                                        {/*    <th>Location</th>*/}
+                                        {/*    </thead>*/}
+                                        {/*    <tbody>*/}
+                                        {/*    {dataTable.map((data) => (*/}
+                                        {/*        <CreateRow key={data.index} title={data.title}*/}
+                                        {/*                   location={data.location}/>*/}
+                                        {/*    ))}*/}
+                                        {/*    </tbody>*/}
+                                        {/*</Table>*/}
                                         <ReactTable
-                                            data={data}
+                                            data={dataTable}
                                             filterable
                                             columns={[{
                                                 columns: [
                                                     {
                                                         Header: 'Title',
-                                                        accessor: 'lastName',
+                                                        accessor: 'title'
                                                     },
                                                     {
                                                         Header: 'Location',
-                                                        accessor: 'age'
+                                                        accessor: 'location'
                                                     },
                                                     {
                                                         Header: 'Date',
-                                                        accessor: 'visits'
+                                                        accessor: 'date'
                                                     },
                                                     {
                                                         Header: 'Participant',
-                                                        accessor: 'lastName'
+                                                        accessor: 'participant'
                                                     },
                                                     {
                                                         Header: 'Note',
-                                                        accessor: 'lastName'
+                                                        accessor: 'note'
                                                     }
                                                 ]
                                             }]}
