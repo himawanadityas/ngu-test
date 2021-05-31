@@ -61,7 +61,7 @@ class FormInput extends React.Component {
             }
         }
         axios.post("http://localhost:1234/input/save", formData, config)
-            .then(res => console.log(res.data))
+            .then(res => console.log(res.data)).catch()
 
 
     }
@@ -93,7 +93,7 @@ class FormInput extends React.Component {
                                                                 <Label>Title</Label>
                                                                 <Input type="text" name="title" id="title"
                                                                        placeholder="Your Title"
-                                                                       onChange={(event => {})}/>
+                                                                       onChange={this.handleChange}/>
                                                             </FormGroup>
                                                         </Col>
                                                         <Col>

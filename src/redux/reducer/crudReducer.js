@@ -5,14 +5,14 @@ const initialState = {
     listData: [],
     imageData: false,
     loading: true,
-    dataPost: {
-        title: "",
-        location: "",
-        participant: "",
-        note: "",
-        date: "",
-        file: null
-    }
+    // dataPost: {
+    //     title: "",
+    //     location: "",
+    //     participant: "",
+    //     note: "",
+    //     date: "",
+    //     file: null
+    // }
 }
 const crudReducer = (state = {...initialState}, action) => {
     switch (action.type) {
