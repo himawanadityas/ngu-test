@@ -17,27 +17,27 @@ import {IoIosAddCircle} from "react-icons/all";
 
 class Header extends React.Component {
     render() {
-        let {
-            headerBackgroundColor,
-            enableMobileMenuSmall,
-            enableHeaderShadow
-        } = this.props;
+        // let {
+        //     headerBackgroundColor,
+        //     enableMobileMenuSmall,
+        //     enableHeaderShadow
+        // } = this.props;
         return (
             <Fragment>
                 <CSSTransitionGroup
                     component="div"
-                    className={cx("app-header", headerBackgroundColor, {'header-shadow': enableHeaderShadow})}
+                    // className={cx("app-header", headerBackgroundColor, {'header-shadow': enableHeaderShadow})}
                     transitionName="HeaderAnimation"
                     transitionAppear={true}
                     transitionAppearTimeout={1500}
                     transitionEnter={false}
                     transitionLeave={false}>
 
-                    <HeaderLogo/>
+                    {/*<HeaderLogo/>*/}
 
                     <div className={cx(
                         "app-header__content",
-                        {'header-mobile-open': enableMobileMenuSmall},
+                        // {'header-mobile-open': enableMobileMenuSmall},
                     )}>
                         <div className="app-header-left">
                         </div>
@@ -50,14 +50,15 @@ class Header extends React.Component {
         );
     }
 }
-
-const mapStateToProps = state => ({
-    enableHeaderShadow: state.ThemeOptions.enableHeaderShadow,
-    closedSmallerSidebar: state.ThemeOptions.closedSmallerSidebar,
-    headerBackgroundColor: state.ThemeOptions.headerBackgroundColor,
-    enableMobileMenuSmall: state.ThemeOptions.enableMobileMenuSmall,
-});
-
-const mapDispatchToProps = dispatch => ({});
-
-export default connect(mapStateToProps, mapDispatchToProps)(Header);
+//
+// const mapStateToProps = state => ({
+//     enableHeaderShadow: state.ThemeOptions.enableHeaderShadow,
+//     closedSmallerSidebar: state.ThemeOptions.closedSmallerSidebar,
+//     headerBackgroundColor: state.ThemeOptions.headerBackgroundColor,
+//     enableMobileMenuSmall: state.ThemeOptions.enableMobileMenuSmall,
+// });
+//
+// const mapDispatchToProps = dispatch => ({});
+//
+// export default connect(mapStateToProps, mapDispatchToProps)(Header);
+export default Header;

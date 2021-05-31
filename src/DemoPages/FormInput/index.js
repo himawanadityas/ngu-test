@@ -1,8 +1,8 @@
 import React, {Fragment} from 'react';
 import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
 import axios from "axios";
-
-// Examples
+import {connect} from "react-redux";
+import crudAction from "../../redux/action/crudAction";
 
 import {
     Button,
@@ -30,6 +30,7 @@ class FormInput extends React.Component {
 
     handleChange = (e) => {
         this.setState({[e.target.name]: e.target.value})
+
     }
 
     handleFileChange = (e) => {
@@ -37,8 +38,11 @@ class FormInput extends React.Component {
     }
 
     onSubmit = (e) => {
+        // const formData = new FormData();
+        // const formData = new FormData();
         const formData = new FormData();
         const json = JSON.stringify({
+
             "title": this.state.title,
             "location": this.state.location,
             "date": this.state.date,
@@ -89,7 +93,7 @@ class FormInput extends React.Component {
                                                                 <Label>Title</Label>
                                                                 <Input type="text" name="title" id="title"
                                                                        placeholder="Your Title"
-                                                                       onChange={this.handleChange}/>
+                                                                       onChange={(event => {})}/>
                                                             </FormGroup>
                                                         </Col>
                                                         <Col>

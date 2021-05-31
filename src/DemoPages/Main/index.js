@@ -18,34 +18,34 @@ class Main extends React.Component {
     }
 
     render() {
-        let {
-            colorScheme,
-            enableFixedHeader,
-            enableFixedSidebar,
-            enableFixedFooter,
-            enableClosedSidebar,
-            closedSmallerSidebar,
-            enableMobileMenu,
-            enablePageTabsAlt,
-        } = this.props;
+        // let {
+        //     colorScheme,
+        //     enableFixedHeader,
+        //     enableFixedSidebar,
+        //     enableFixedFooter,
+        //     enableClosedSidebar,
+        //     closedSmallerSidebar,
+        //     enableMobileMenu,
+        //     enablePageTabsAlt,
+        // } = this.props;
 
         return (
             <ResizeDetector
                 handleWidth
                 render={({ width }) => (
                     <Fragment>
-                        <div className={cx(
-                            "app-container app-theme-" + colorScheme,
-                            {'fixed-header': enableFixedHeader},
-                            {'fixed-sidebar': enableFixedSidebar || width < 1250},
-                            {'fixed-footer': enableFixedFooter},
-                            {'closed-sidebar': enableClosedSidebar || width < 1250},
-                            {'closed-sidebar-mobile': closedSmallerSidebar || width < 1250},
-                            {'sidebar-mobile-open': enableMobileMenu},
-                            {'body-tabs-shadow-btn': enablePageTabsAlt},
-                        )}>
+                        {/*<div className={cx(*/}
+                        {/*    "app-container app-theme-" + colorScheme,*/}
+                        {/*    {'fixed-header': enableFixedHeader},*/}
+                        {/*    {'fixed-sidebar': enableFixedSidebar || width < 1250},*/}
+                        {/*    {'fixed-footer': enableFixedFooter},*/}
+                        {/*    {'closed-sidebar': enableClosedSidebar || width < 1250},*/}
+                        {/*    {'closed-sidebar-mobile': closedSmallerSidebar || width < 1250},*/}
+                        {/*    {'sidebar-mobile-open': enableMobileMenu},*/}
+                        {/*    {'body-tabs-shadow-btn': enablePageTabsAlt},*/}
+                        {/*)}>*/}
                             <AppMain/>
-                        </div>
+                        {/*</div>*/}
                     </Fragment>
                 )}
             />
@@ -53,15 +53,15 @@ class Main extends React.Component {
     }
 }
 
-const mapStateToProp = state => ({
-    colorScheme: state.ThemeOptions.colorScheme,
-    enableFixedHeader: state.ThemeOptions.enableFixedHeader,
-    enableMobileMenu: state.ThemeOptions.enableMobileMenu,
-    enableFixedFooter: state.ThemeOptions.enableFixedFooter,
-    enableFixedSidebar: state.ThemeOptions.enableFixedSidebar,
-    enableClosedSidebar: state.ThemeOptions.enableClosedSidebar,
-    enablePageTabsAlt: state.ThemeOptions.enablePageTabsAlt,
+// const mapStateToProp = state => ({
+//     colorScheme: state.ThemeOptions.colorScheme,
+//     enableFixedHeader: state.ThemeOptions.enableFixedHeader,
+//     enableMobileMenu: state.ThemeOptions.enableMobileMenu,
+//     enableFixedFooter: state.ThemeOptions.enableFixedFooter,
+//     enableFixedSidebar: state.ThemeOptions.enableFixedSidebar,
+//     enableClosedSidebar: state.ThemeOptions.enableClosedSidebar,
+//     enablePageTabsAlt: state.ThemeOptions.enablePageTabsAlt,
+//
+// });
 
-});
-
-export default withRouter(connect(mapStateToProp)(Main));
+export default withRouter(Main);

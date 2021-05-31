@@ -24,8 +24,8 @@ class Demo extends Component {
                     expanded: true,
                     children: [
                         {title: 'styles.css'},
-                        {title: 'index.js'},
-                        {title: 'reducers.js'},
+                        {title: 'mainReducers.js'},
+                        {title: 'mainReducers.js'},
                         {title: 'actions.js'},
                         {title: 'utils.js'},
                     ],

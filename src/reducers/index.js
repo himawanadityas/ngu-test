@@ -1,5 +1,8 @@
-import ThemeOptions from './ThemeOptions';
+import {combineReducers} from "redux";
+import MainReducers from "./mainReducers";
+import ThemeOptions from "../Layout/ThemeOptions";
 
-export default {
+export const rootReducers = combineReducers({
+    MainReducers,
     ThemeOptions
-};
+})

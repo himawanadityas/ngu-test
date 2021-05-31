@@ -8,7 +8,9 @@ import { HashRouter } from 'react-router-dom';
 import './assets/base.scss';
 import Main from './DemoPages/Main';
 import configureStore from './config/configureStore';
+import {createStore} from "redux";
 import { Provider } from 'react-redux';
+import reducers from "./reducers/mainReducers";
 
 const store = configureStore();
 const rootElement = document.getElementById('root');
