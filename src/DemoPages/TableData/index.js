@@ -47,18 +47,7 @@ const TableData = ({getDataList, loading, listOfData}) => {
                         <Card className="main-card m-5">
                             <div className="mb-3">
                                 <CardBody>
-                                    {/*<Table size="lg">*/}
-                                    {/*    <thead>*/}
-                                    {/*    <th>Title</th>*/}
-                                    {/*    <th>Location</th>*/}
-                                    {/*    </thead>*/}
-                                    {/*    <tbody>*/}
-                                    {/*    {this.state.dataTable.map((data) => (*/}
-                                    {/*        <CreateRow key={data.index} title={data.title}*/}
-                                    {/*                   location={data.location}/>*/}
-                                    {/*    ))}*/}
-                                    {/*    </tbody>*/}
-                                    {/*</Table>*/}
+
                                     <ReactTable
                                         data={listOfData}
                                         filterable
@@ -67,6 +56,7 @@ const TableData = ({getDataList, loading, listOfData}) => {
                                                 {
                                                     Header: 'Title',
                                                     accessor: 'title',
+                                                    // Cell: row => console.log(row.value)
                                                 },
                                                 {
                                                     Header: 'Location',

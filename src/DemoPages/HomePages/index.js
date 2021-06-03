@@ -55,7 +55,7 @@ const Homepage = () => {
                         <Row>
                             {dataCard.map((card, index) => (
                                 <CardBox key={index} title={card.title} location={card.location} date={card.date}
-                                         participant={card.participant} image={`data:image/*;base64,` + dataImage}
+                                         participant={card.participant} image={card.id}
                                          note={card.note}/>
                             ))}
                         </Row>
