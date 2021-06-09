@@ -25,7 +25,9 @@ import AppFooter from "../../Layout/AppFooter";
 class FormInput extends React.Component {
     constructor() {
         super();
-        this.state = {}
+        this.state = {
+
+        }
     }
 
     handleChange = (e) => {
@@ -61,9 +63,7 @@ class FormInput extends React.Component {
             }
         }
         axios.post("http://localhost:1234/input/save", formData, config)
-            .then(res => console.log(res.data)).catch()
-
-
+            .then().catch()
     }
 
 
