@@ -19,25 +19,6 @@ const Homepage = () => {
         })
     }, [])
 
-    // useEffect(() => {
-    //     dataCard.map((data, index) => {
-    //         axios.get('http://localhost:1234/input/getImage/' + data.id).then(res => {
-    //             setDataImage(res.data)
-    //             console.log(res.data)
-    //         })
-    //     })
-    // }, [])
-
-    // const getImageData = (id) => {
-    //     axios.get('http://localhost:1234/input/getImage/' + id).then(res => {
-    //         setDataImage(res.data)
-    //         console.log(res.data)
-    //         console.log("Bisaaa yooo")
-    //     })
-    // };
-    // axios.get('http://localhost:1234/input/getImage/' + id).then(res => {
-    //     setDataImage(res.data)
-    // })
     return (
 
         <Fragment>

@@ -13,24 +13,15 @@ import {connect} from "react-redux";
 import crudAction from "../../redux/action/crudAction";
 
 
-const CreateRow = (props) => {
-    return (
-        <tr>
-            <td>{props.title}</td>
-            <td>{props.location}</td>
-        </tr>
-    )
-}
-const TableData = ({getDataList, loading, listOfData}) => {
+const TableData = () => {
+    const [listOfData, setListOfData] = useState([])
 
     useEffect(() => {
-        if(loading){
-            getDataList()
-        }
-    })
+        axios.get('http://localhost:1234/input').then(res => {
+            setListOfData(res.data)
+        })
+    },[])
 
-
-    // const {dataTable} = this.state;
     return (
         <Fragment>
 
@@ -90,14 +81,4 @@ const TableData = ({getDataList, loading, listOfData}) => {
 }
 
 
-const mapStateToProps = state => ({
-    ...state.crudReducer,
-    listOfData: state.crudReducer.listData,
-    loading: state.crudReducer.loading
-})
-
-const mapDispatchToProps = {
-    getDataList: crudAction.getData
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(TableData);
+export default TableData;
